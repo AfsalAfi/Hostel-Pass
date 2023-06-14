@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hostelpass/control_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-const serverURL = '192.168.20.7';
+const serverURL = '192.168.1.109';
 const clientDomain = 'localhost:3000';
 const clientURL = "$clientDomain/security?gatePass=";
 

@@ -439,7 +439,7 @@ class _ScreenQrFormState extends State<ScreenQrForm> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
-                                      'Place to visit',
+                                      'Reason',
                                       style: TextStyle(
                                         fontSize: 12.5,
                                         fontFamily: 'Inter',

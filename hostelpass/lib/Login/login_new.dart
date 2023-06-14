@@ -166,7 +166,7 @@ class ScreenLogin extends StatelessWidget {
                                 filled: true,
                                 fillColor:
                                     const Color(0xFFFAFAFA), // Background color
-                                labelText: 'Paassword',
+                                labelText: 'Password',
                                 labelStyle: const TextStyle(
                                     color: Color.fromARGB(255, 42, 42, 43),
                                     fontSize: 15),

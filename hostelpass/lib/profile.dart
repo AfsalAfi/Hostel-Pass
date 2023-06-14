@@ -92,7 +92,8 @@ class _ScreenProfileState extends State<ScreenProfile> {
           final responseJson = snapshot.data;
           print(responseJson[0]['email']);
           var email;
-          var studentNumber;
+          var roomNo;
+          var StudentNumber;
           String base64String =
               responseJson[0]['reducedImageBASE64'].split(',')[1];
 
@@ -102,15 +103,17 @@ class _ScreenProfileState extends State<ScreenProfile> {
             email = " ";
           }
           if (responseJson[0]['studentNumber'] != null) {
-            studentNumber = responseJson[0]['studentNumber'];
+            StudentNumber = responseJson[0]['studentNumber'];
           } else {
-            studentNumber = " ";
+            StudentNumber = " ";
           }
           if (responseJson[0]['roomNo'] != null &&
-              responseJson[0].containsValue('roomNo')) {
-            studentNumber = responseJson[0]['studentNumber'];
+              responseJson[0].containsKey('roomNo')) {
+            roomNo = responseJson[0]['roomNo'];
+            print("roomNo");
+            print(roomNo);
           } else {
-            studentNumber = "No Hostel room found";
+            roomNo = "No Hostel room found";
           }
           print(email);
 
@@ -325,7 +328,7 @@ class _ScreenProfileState extends State<ScreenProfile> {
                         screenWidth,
                         screenHeight,
                         email,
-                        studentNumber,
+                        StudentNumber,
                       );
                       print('Button tapped!');
                     },
@@ -558,7 +561,7 @@ class _ScreenProfileState extends State<ScreenProfile> {
                                   ),
                                 ),
                                 Text(
-                                  studentNumber,
+                                  StudentNumber,
                                   style: const TextStyle(
                                     color: Colors.grey,
                                     fontWeight: FontWeight.w500,
@@ -610,11 +613,11 @@ class _ScreenProfileState extends State<ScreenProfile> {
                     ),
                   ),
                   //hostel
-                  if (studentNumber == "No Hostel room found")
+                  if (roomNo != "No Hostel room found")
                     HostelCard(
                       screenWidth: screenWidth,
                       screenHeight: screenHeight,
-                      room: studentNumber,
+                      room: roomNo,
                     ),
 
                   const SizedBox(
@@ -951,7 +954,7 @@ Future changePassword(context, screenWidth, screenHeight) =>
                     Expanded(
                       child: Center(
                         child: SizedBox(
-                          width: screenWidth * 0.50,
+                          width: screenWidth * 0.70,
                           height: screenHeight * 0.065,
                           child: ElevatedButton(
                             style: ButtonStyle(
@@ -1188,7 +1191,7 @@ Future editDetails(context, screenWidth, screenHeight, email, contactNumber) =>
                                   },
                                   body: {
                                     "email": _emailController.text.toString(),
-                                    "studentNumber":
+                                    "roomNo":
                                         _contactNumberController.text.toString()
                                   },
                                 );

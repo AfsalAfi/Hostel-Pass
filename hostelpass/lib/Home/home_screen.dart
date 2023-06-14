@@ -398,7 +398,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                                       ],
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ],
